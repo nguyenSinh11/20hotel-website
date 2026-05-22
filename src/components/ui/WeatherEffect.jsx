@@ -69,19 +69,20 @@ const WeatherEffect = () => {
         )}
       </div>
 
-      {/* Demo Controller (Hidden unless hovered over the specific area at bottom center) */}
+      {/* Demo Controller (Fixed at top-left) */}
       <div 
-        className="fixed bottom-0 left-1/2 -translate-x-1/2 h-4 w-32 z-50 group flex flex-col items-center justify-end"
+        className="fixed top-24 left-6 z-[100] flex flex-col bg-black/60 backdrop-blur-md p-3 rounded-xl border border-luxury-brass/30 shadow-2xl"
       >
-        <div className="bg-black/80 backdrop-blur-md rounded-t-xl p-2 border border-luxury-brass/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex space-x-2 translate-y-full group-hover:translate-y-0">
-          <button onClick={() => setWeatherType('none')} className={`p-1.5 rounded-full ${weatherType === 'none' ? 'bg-luxury-brass text-luxury-emerald' : 'text-luxury-ivory hover:text-luxury-brass'}`} title="Trời nắng/Bình thường">
-            <Sun className="w-4 h-4" />
+        <span className="text-xs text-luxury-brass font-bold mb-2 uppercase tracking-widest text-center">Test Thời Tiết</span>
+        <div className="flex space-x-2">
+          <button onClick={() => setWeatherType('none')} className={`p-2 rounded-full ${weatherType === 'none' ? 'bg-luxury-brass text-luxury-emerald' : 'text-luxury-ivory hover:bg-white/10'} transition-colors`} title="Trời nắng/Bình thường">
+            <Sun className="w-5 h-5" />
           </button>
-          <button onClick={() => setWeatherType('fog')} className={`p-1.5 rounded-full ${weatherType === 'fog' ? 'bg-luxury-brass text-luxury-emerald' : 'text-luxury-ivory hover:text-luxury-brass'}`} title="Sương mù">
-            <CloudFog className="w-4 h-4" />
+          <button onClick={() => setWeatherType('fog')} className={`p-2 rounded-full ${weatherType === 'fog' ? 'bg-luxury-brass text-luxury-emerald' : 'text-luxury-ivory hover:bg-white/10'} transition-colors`} title="Sương mù">
+            <CloudFog className="w-5 h-5" />
           </button>
-          <button onClick={() => setWeatherType('rain')} className={`p-1.5 rounded-full ${weatherType === 'rain' ? 'bg-luxury-brass text-luxury-emerald' : 'text-luxury-ivory hover:text-luxury-brass'}`} title="Mưa rào">
-            <CloudRain className="w-4 h-4" />
+          <button onClick={() => setWeatherType('rain')} className={`p-2 rounded-full ${weatherType === 'rain' ? 'bg-luxury-brass text-luxury-emerald' : 'text-luxury-ivory hover:bg-white/10'} transition-colors`} title="Mưa rào">
+            <CloudRain className="w-5 h-5" />
           </button>
         </div>
       </div>

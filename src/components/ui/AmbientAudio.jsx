@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Disc3, Music, VolumeX, Volume2 } from 'lucide-react';
 
 // Using a reliable royalty-free ambient lounge jazz track
-const AUDIO_URL = "https://assets.mixkit.co/music/preview/mixkit-smooth-and-cool-lounge-414.mp3";
+const AUDIO_URL = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
 
 const AmbientAudio = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -51,7 +51,7 @@ const AmbientAudio = () => {
       
       <button
         onClick={toggleAudio}
-        className={`fixed bottom-6 left-6 p-4 rounded-full shadow-2xl transition-all duration-300 z-50 flex items-center justify-center border ${
+        className={`fixed bottom-6 left-6 p-4 rounded-full shadow-2xl transition-all duration-300 z-[100] flex items-center justify-center border ${
           isPlaying 
             ? 'bg-luxury-brass text-luxury-emerald border-luxury-brass scale-100 hover:scale-110' 
             : 'bg-[#0f2a20]/80 text-luxury-brass border-luxury-brass/30 backdrop-blur-md scale-90 hover:scale-100'
