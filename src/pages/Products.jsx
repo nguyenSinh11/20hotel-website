@@ -1,105 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, Maximize2, Heart, PlusCircle, BedDouble, Bath, Car, Ruler, Phone, Mail, MessageCircle } from 'lucide-react';
 
-const MOCK_ROOMS = [
-  {
-    id: 1,
-    hotel: "KHÁCH SẠN HAI M.I",
-    name: "Phòng đôi hạng sang nhìn ra thành phố.",
-    price: "720.000",
-    images: [
-      "https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    ],
-    beds: "1-2",
-    baths: "1",
-    cars: "0",
-    area: "25",
-    featured: true
-  },
-  {
-    id: 2,
-    hotel: "KHÁCH SẠN 20",
-    name: "Phòng đôi/phòng giường đơn cao cấp",
-    price: "950.000",
-    images: [
-      "https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1618221118493-9cfa1a1c00da?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    ],
-    beds: "1-2",
-    baths: "1",
-    cars: "1",
-    area: "35",
-    featured: true
-  },
-  {
-    id: 3,
-    hotel: "KHÁCH SẠN 20",
-    name: "Phòng Junior Suite nhìn ra thành phố",
-    price: "1.100.000",
-    images: [
-      "https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1598928506311-c55dd1217e42?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    ],
-    beds: "1-2",
-    baths: "1",
-    cars: "1",
-    area: "38",
-    featured: true
-  },
-  {
-    id: 4,
-    hotel: "KHÁCH SẠN 20",
-    name: "Phòng Junior Suite có ban công",
-    price: "1.350.000",
-    images: [
-      "https://images.unsplash.com/photo-1505691938895-1758d7feb511?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1542314831-c6a4d14b83cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    ],
-    beds: "1-2",
-    baths: "1",
-    cars: "1",
-    area: "40",
-    featured: true
-  },
-  {
-    id: 5,
-    hotel: "KHÁCH SẠN 20",
-    name: "Gia đình hạng sang",
-    price: "1.350.000",
-    images: [
-      "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1618221118493-9cfa1a1c00da?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    ],
-    beds: "3-4",
-    baths: "1",
-    cars: "1",
-    area: "45",
-    featured: true
-  },
-  {
-    id: 6,
-    hotel: "KHÁCH SẠN 20",
-    name: "Căn hộ áp mái",
-    price: "1.450.000",
-    images: [
-      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1505691938895-1758d7feb511?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1542314831-c6a4d14b83cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    ],
-    beds: "3-4",
-    baths: "1",
-    cars: "1",
-    area: "48",
-    featured: true
-  }
-];
+import { propertyData } from '../data/propertyData';
+import SEO from '../components/seo/SEO';
 
 const RoomCard = ({ room }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -115,7 +19,7 @@ const RoomCard = ({ room }) => {
   };
 
   return (
-    <div className="bg-white border border-gray-200 flex flex-col h-full font-sans rounded-sm hover:shadow-lg transition-shadow">
+    <Link to={`/property/${room.id}`} className="bg-white border border-gray-200 flex flex-col h-full font-sans rounded-sm hover:shadow-lg transition-shadow">
       
       {/* Khung Ảnh */}
       <div className="relative h-60 overflow-hidden bg-gray-100 group">
@@ -213,22 +117,22 @@ const RoomCard = ({ room }) => {
       {/* Nút bấm Liên Hệ */}
       <div className="p-4 border-t border-gray-200">
         <div className="flex gap-2">
-          <button className="flex-1 flex items-center justify-center py-2 border border-[#43a047] text-[#43a047] rounded hover:bg-[#43a047]/10 transition-colors text-sm font-bold">
+          <button onClick={(e) => e.preventDefault()} className="flex-1 flex items-center justify-center py-2 border border-[#43a047] text-[#43a047] rounded hover:bg-[#43a047]/10 transition-colors text-sm font-bold">
             <Phone className="w-4 h-4 mr-1.5 stroke-[2]" />
             Gọi
           </button>
-          <button className="flex-1 flex items-center justify-center py-2 border border-[#43a047] text-[#43a047] rounded hover:bg-[#43a047]/10 transition-colors text-sm font-bold">
+          <button onClick={(e) => e.preventDefault()} className="flex-1 flex items-center justify-center py-2 border border-[#43a047] text-[#43a047] rounded hover:bg-[#43a047]/10 transition-colors text-sm font-bold">
             <Mail className="w-4 h-4 mr-1.5 stroke-[2]" />
             E-mail
           </button>
-          <button className="flex-1 flex items-center justify-center py-2 border border-[#43a047] text-[#43a047] rounded hover:bg-[#43a047]/10 transition-colors text-sm font-bold">
+          <button onClick={(e) => e.preventDefault()} className="flex-1 flex items-center justify-center py-2 border border-[#43a047] text-[#43a047] rounded hover:bg-[#43a047]/10 transition-colors text-sm font-bold">
             <MessageCircle className="w-4 h-4 mr-1.5 stroke-[2]" />
             WhatsApp
           </button>
         </div>
       </div>
       
-    </div>
+    </Link>
   );
 };
 
@@ -241,7 +145,7 @@ const Products = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const filteredRooms = MOCK_ROOMS.filter(room => {
+  const filteredRooms = propertyData.filter(room => {
     // 1. Lọc theo Tab (Khách sạn)
     if (activeTab === 'HOTEL20' && room.hotel !== 'KHÁCH SẠN 20') return false;
     if (activeTab === 'HOTELHAI' && room.hotel !== 'KHÁCH SẠN HAI M.I') return false;
@@ -258,6 +162,7 @@ const Products = () => {
 
   return (
     <div className="bg-white min-h-screen pb-24 font-sans text-black">
+      <SEO title="Phòng nghỉ | Danh sách các hạng phòng cao cấp" />
       
       {/* Hero Section */}
       <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center mb-16">
