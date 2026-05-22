@@ -3,6 +3,7 @@ export const propertyData = [
     id: 1,
     hotel: "KHÁCH SẠN HAI M.I",
     name: "Phòng đôi hạng sang nhìn ra thành phố",
+    name_en: "Luxury Double Room City View",
     price: "720.000",
     layoutType: "standard",
     images: [
@@ -22,6 +23,7 @@ export const propertyData = [
     id: 2,
     hotel: "KHÁCH SẠN 20",
     name: "Phòng đôi/phòng giường đơn cao cấp",
+    name_en: "Premium Double/Twin Room",
     price: "950.000",
     layoutType: "standard",
     images: [
@@ -41,6 +43,7 @@ export const propertyData = [
     id: 3,
     hotel: "KHÁCH SẠN 20",
     name: "Phòng Junior Suite nhìn ra thành phố",
+    name_en: "Junior Suite City View",
     price: "1.100.000",
     layoutType: "luxury",
     images: [
@@ -61,6 +64,7 @@ export const propertyData = [
     id: 4,
     hotel: "KHÁCH SẠN 20",
     name: "Phòng Junior Suite có ban công",
+    name_en: "Junior Suite with Balcony",
     price: "1.350.000",
     layoutType: "luxury",
     images: [
@@ -81,6 +85,7 @@ export const propertyData = [
     id: 5,
     hotel: "KHÁCH SẠN 20",
     name: "Gia đình hạng sang",
+    name_en: "Luxury Family Suite",
     price: "1.350.000",
     layoutType: "family",
     images: [

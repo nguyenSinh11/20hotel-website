@@ -30,5 +30,34 @@
     "price": "Price",
     "night": "night",
     "book_now": "Book Now"
+  },
+  "home_rooms": {
+    "subtitle": "OUR ROOMS",
+    "title1": "Experience",
+    "title2": "Exceptional Living",
+    "desc": "Discover rooms designed perfectly, blending modern convenience with classic aesthetic, providing an unforgettable experience tailored for the elite.",
+    "heritage": "HERITAGE",
+    "details": "Details"
+  },
+  "home_carousel": {
+    "title1": "Suggested",
+    "title2": "Exclusive Stays",
+    "per_night": "per night",
+    "rooms": "rooms"
+  },
+  "home_trending": {
+    "vip_title": "VIP Member Privileges",
+    "vip_desc": "Become an honored guest of 20Hotel to experience personalized privileges, receive invitations to exclusive events, and enjoy secret stay offers reserved just for you.",
+    "email_placeholder": "Your Email Address",
+    "subscribe": "Get Privileges",
+    "policy_text": "You can customize your email preferences at any time. View our",
+    "privacy_policy": "privacy policy",
+    "trending_title": "Masterpiece Retreats",
+    "trending_subtitle": "The most sought-after destinations by the elite",
+    "hoan_kiem": "Hoan Kiem Lake",
+    "tay_ho": "West Lake",
+    "ba_dinh": "Ba Dinh",
+    "cau_giay": "Cau Giay",
+    "soc_son": "Soc Son"
   }
 }

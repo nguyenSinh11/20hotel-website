@@ -30,5 +30,34 @@
     "price": "Mức giá",
     "night": "Đêm",
     "book_now": "Đặt phòng ngay"
+  },
+  "home_rooms": {
+    "subtitle": "TẤT CẢ PHÒNG",
+    "title1": "Trải nghiệm",
+    "title2": "Không Gian Sống Độc Bản",
+    "desc": "Khám phá các hạng phòng được thiết kế hoàn mỹ, kết hợp giữa sự tiện nghi hiện đại và nét thẩm mỹ cổ điển, mang đến cho bạn một trải nghiệm nghỉ dưỡng khó quên dành riêng cho giới thượng lưu.",
+    "heritage": "HERITAGE",
+    "details": "Chi tiết"
+  },
+  "home_carousel": {
+    "title1": "Gợi Ý Nơi Lưu Trú",
+    "title2": "Độc Quyền",
+    "per_night": "mỗi đêm",
+    "rooms": "phòng"
+  },
+  "home_trending": {
+    "vip_title": "Đặc Quyền Thành Viên VIP",
+    "vip_desc": "Trở thành khách mời danh dự của 20Hotel để trải nghiệm những đặc quyền cá nhân hóa, nhận thư mời tham dự các sự kiện giới hạn và tận hưởng những ưu đãi nghỉ dưỡng bí mật dành riêng cho bạn.",
+    "email_placeholder": "Email của quý khách",
+    "subscribe": "Nhận Đặc Quyền",
+    "policy_text": "Quý khách có thể tùy chỉnh tùy chọn nhận email bất cứ lúc nào. Xem",
+    "privacy_policy": "chính sách bảo mật",
+    "trending_title": "Tuyệt Tác Nghỉ Dưỡng",
+    "trending_subtitle": "Những địa danh lưu trú được giới tinh hoa săn đón nhất",
+    "hoan_kiem": "Hồ Hoàn Kiếm",
+    "tay_ho": "Hồ Tây",
+    "ba_dinh": "Ba Đình",
+    "cau_giay": "Cầu Giấy",
+    "soc_son": "Sóc Sơn"
   }
 }

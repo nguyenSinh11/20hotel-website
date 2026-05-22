@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
 import { Star, Heart, Bed, Maximize } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
@@ -13,7 +14,8 @@ const HOTELS = [
   {
     id: 'biet-thu-rung-thong',
     name: "Biệt thự Rừng Thông, Sóc Sơn",
-    price: "1.250.000đ",
+    name_en: "Pine Forest Villa, Soc Son",
+    price: "1.250.000",
     rating: 4.93,
     bedrooms: 2,
     area: 214,
@@ -22,7 +24,8 @@ const HOTELS = [
   {
     id: 'homestay-ho-tay',
     name: "Homestay Hồ Tây",
-    price: "850.000đ",
+    name_en: "West Lake Homestay",
+    price: "850.000",
     rating: 4.93,
     bedrooms: 5,
     area: 214,
@@ -31,7 +34,8 @@ const HOTELS = [
   {
     id: 'resort-ban-xoi',
     name: "Resort Bản Xôi, Ba Vì",
-    price: "2.100.000đ",
+    name_en: "Ban Xoi Resort, Ba Vi",
+    price: "2.100.000",
     rating: 4.98,
     bedrooms: 4,
     area: 300,
@@ -40,7 +44,8 @@ const HOTELS = [
   {
     id: 'nha-go-ba-vi',
     name: "Nhà Gỗ Ba Vì",
-    price: "550.000đ",
+    name_en: "Ba Vi Wooden House",
+    price: "550.000",
     rating: 4.85,
     bedrooms: 1,
     area: 80,
@@ -49,7 +54,8 @@ const HOTELS = [
   {
     id: 'khach-san-pho-co',
     name: "Khách sạn Phố Cổ",
-    price: "950.000đ",
+    name_en: "Old Quarter Hotel",
+    price: "950.000",
     rating: 4.90,
     bedrooms: 2,
     area: 120,
@@ -58,11 +64,14 @@ const HOTELS = [
 ];
 
 const HotelCarousel = () => {
+  const { t, i18n } = useTranslation();
+  const isEn = i18n.language.startsWith('en');
+
   return (
     <section className="py-32 bg-luxury-ivory overflow-hidden border-t border-luxury-brass/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16" data-aos="fade-up">
         <h2 className="text-4xl font-bold text-center text-luxury-emerald font-serif">
-          Gợi Ý Nơi Lưu Trú <span className="text-luxury-burgundy">Độc Quyền</span>
+          {t('home_carousel.title1')} <span className="text-luxury-burgundy">{t('home_carousel.title2')}</span>
         </h2>
       </div>
 
@@ -108,17 +117,19 @@ const HotelCarousel = () => {
                 {/* Info */}
                 <div className="pt-6 pb-2 px-2">
                   <div className="flex justify-between items-start mb-4">
-                    <h3 className="text-xl font-bold text-luxury-emerald pr-4 font-serif leading-snug">{hotel.name}</h3>
+                    <h3 className="text-xl font-bold text-luxury-emerald pr-4 font-serif leading-snug">
+                      {isEn ? (hotel.name_en || hotel.name) : hotel.name}
+                    </h3>
                     <div className="text-right whitespace-nowrap">
-                      <span className="text-xl font-bold text-luxury-burgundy font-serif">{hotel.price}</span>
-                      <p className="text-xs text-luxury-emerald/60 uppercase tracking-wider mt-1">mỗi đêm</p>
+                      <span className="text-xl font-bold text-luxury-burgundy font-serif">{hotel.price}{isEn ? 'VND' : 'đ'}</span>
+                      <p className="text-xs text-luxury-emerald/60 uppercase tracking-wider mt-1">{t('home_carousel.per_night')}</p>
                     </div>
                   </div>
                   
                   <div className="flex items-center text-luxury-emerald/70 text-sm space-x-4 border-t border-luxury-emerald/10 pt-4 mt-2">
                     <div className="flex items-center">
                       <Bed className="w-4 h-4 mr-2 text-luxury-brass" />
-                      {hotel.bedrooms} phòng
+                      {hotel.bedrooms} {t('home_carousel.rooms')}
                     </div>
                     <div className="flex items-center">
                       <Maximize className="w-4 h-4 mr-2 text-luxury-brass" />
