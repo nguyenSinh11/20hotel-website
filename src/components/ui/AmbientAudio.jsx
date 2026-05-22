@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Disc3, Music, VolumeX, Volume2 } from 'lucide-react';
 
-// Using a reliable royalty-free nature track (birds and stream)
-const AUDIO_URL = "https://actions.google.com/sounds/v1/water/small_stream_with_birds.ogg";
+// Dùng nhạc nền rừng cây chim hót (mp3 để tương thích 100% mọi trình duyệt)
+const AUDIO_URL = "https://cdn.freesound.org/previews/515/515822_6081498-lq.mp3";
 
 const AmbientAudio = () => {
   const [isPlaying, setIsPlaying] = useState(false);
