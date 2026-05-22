@@ -20,6 +20,7 @@ import NewsDetail from './pages/NewsDetail';
 import Recruitment from './pages/Recruitment';
 import RecruitmentDetail from './pages/RecruitmentDetail';
 import PropertyCategory from './pages/PropertyCategory';
+import Support from './pages/Support';
 
 // Auth Pages
 import Login from './pages/auth/Login';
@@ -82,6 +83,7 @@ function App() {
           <Route path="/recruitment/:id" element={<RecruitmentDetail />} />
           <Route path="/category/:categoryId" element={<PropertyCategory />} />
           <Route path="/property/:id" element={<PropertyDetail />} />
+          <Route path="/support" element={<Support />} />
           
           {/* Auth Routes */}
           <Route path="/login" element={<Login />} />

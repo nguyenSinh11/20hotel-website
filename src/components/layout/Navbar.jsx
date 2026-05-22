@@ -31,7 +31,7 @@ const Navbar = () => {
         <Link to="/products" className="hover:text-luxury-brass transition-colors">Phòng nghỉ</Link>
         <Link to="/news" className="hover:text-luxury-brass transition-colors">Tin tức</Link>
         <Link to="/recruitment" className="hover:text-luxury-brass transition-colors">Tuyển Dụng</Link>
-        <Link to="#" className="hover:text-luxury-brass transition-colors">Hỗ trợ</Link>
+        <Link to="/support" className="hover:text-luxury-brass transition-colors">Hỗ trợ</Link>
         <Link to="/login" className="hover:text-luxury-brass transition-colors">Đăng nhập</Link>
       </div>
 
@@ -43,7 +43,7 @@ const Navbar = () => {
           <Link to="/products" onClick={() => setIsMobileMenuOpen(false)} className="text-luxury-ivory hover:text-luxury-brass py-3 border-b border-luxury-ivory/10 font-medium">Phòng nghỉ</Link>
           <Link to="/news" onClick={() => setIsMobileMenuOpen(false)} className="text-luxury-ivory hover:text-luxury-brass py-3 border-b border-luxury-ivory/10 font-medium">Tin tức</Link>
           <Link to="/recruitment" onClick={() => setIsMobileMenuOpen(false)} className="text-luxury-ivory hover:text-luxury-brass py-3 border-b border-luxury-ivory/10 font-medium">Tuyển Dụng</Link>
-          <Link to="#" onClick={() => setIsMobileMenuOpen(false)} className="text-luxury-ivory hover:text-luxury-brass py-3 border-b border-luxury-ivory/10 font-medium">Hỗ trợ</Link>
+          <Link to="/support" onClick={() => setIsMobileMenuOpen(false)} className="text-luxury-ivory hover:text-luxury-brass py-3 border-b border-luxury-ivory/10 font-medium">Hỗ trợ</Link>
           <Link to="/login" onClick={() => setIsMobileMenuOpen(false)} className="bg-luxury-brass text-luxury-emerald py-3 rounded font-bold mt-4 shadow-md">Đăng nhập / Đăng ký</Link>
         </div>
       )}
