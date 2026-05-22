@@ -7,6 +7,9 @@ import PropertyTypes from './components/home/PropertyTypes';
 import Trending from './components/home/Trending';
 import Footer from './components/layout/Footer';
 import VIPConcierge from './components/ui/VIPConcierge';
+import SplashScreen from './components/ui/SplashScreen';
+import AmbientAudio from './components/ui/AmbientAudio';
+import WeatherEffect from './components/ui/WeatherEffect';
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -42,6 +45,8 @@ const LayoutWrapper = ({ children }) => {
       {children}
       {!isAuthPage && <Footer />}
       <VIPConcierge />
+      <AmbientAudio />
+      <WeatherEffect />
     </div>
   );
 };
@@ -63,27 +68,13 @@ function App() {
       duration: 800,
       easing: 'ease-in-out',
     });
-
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1500);
-
-    return () => clearTimeout(timer);
   }, []);
 
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-luxury-ivory flex items-center justify-center">
-        <div className="text-center">
-          <div className="w-16 h-16 border-4 border-luxury-emerald border-t-luxury-brass rounded-full animate-spin mb-4 mx-auto"></div>
-          <p className="text-luxury-emerald font-serif text-xl tracking-wider">Đang tải...</p>
-        </div>
-      </div>
-    );
-  }
-
+  // Xóa hàm loading cũ vì đã có SplashScreen
+  
   return (
     <HelmetProvider>
+      {isLoading && <SplashScreen onComplete={() => setIsLoading(false)} />}
       <Router>
         <LayoutWrapper>
           <Suspense fallback={
