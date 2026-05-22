@@ -29,13 +29,21 @@ const Navbar = () => {
           <span className="text-luxury-brass text-3xl mr-1">20</span>Hotel
         </Link>
 
-        {/* Hamburger Menu Icon (Mobile Only) */}
-        <button 
-          className="md:hidden text-luxury-ivory hover:text-luxury-brass transition-colors p-1"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
-        </button>
+        {/* Mobile Actions: Theme Toggle + Hamburger */}
+        <div className="flex md:hidden items-center space-x-3">
+          <button 
+            onClick={toggleTheme}
+            className="p-1.5 rounded-full bg-black/20 text-luxury-ivory border border-luxury-ivory/10 shadow-lg"
+          >
+            {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+          </button>
+          <button 
+            className="text-luxury-ivory hover:text-luxury-brass transition-colors p-1"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
+          </button>
+        </div>
       </div>
 
       {/* Center Menu - The "Notch" (Desktop) */}

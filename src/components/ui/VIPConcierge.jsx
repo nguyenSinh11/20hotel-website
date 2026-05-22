@@ -80,12 +80,12 @@ const VIPConcierge = () => {
         className={`fixed bottom-6 right-6 p-4 bg-luxury-emerald text-luxury-brass rounded-full shadow-2xl hover:scale-105 transition-transform border border-luxury-brass/30 z-50 ${isOpen ? 'hidden' : 'flex'} items-center space-x-2`}
       >
         <Sparkles className="w-5 h-5 animate-pulse" />
-        <span className="font-serif font-bold tracking-wider hidden md:block">Quản Gia</span>
+        <span className="font-serif font-bold tracking-wider">Quản Gia</span>
       </button>
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-6 right-6 w-80 md:w-96 bg-luxury-ivory rounded-xl shadow-2xl border border-luxury-brass/30 overflow-hidden flex flex-col z-50 h-[32rem]">
+        <div className="fixed bottom-0 right-0 w-full h-[85vh] md:bottom-6 md:right-6 md:w-96 md:h-[32rem] bg-luxury-ivory rounded-t-xl md:rounded-b-xl shadow-2xl border border-luxury-brass/30 overflow-hidden flex flex-col z-50">
           {/* Header */}
           <div className="bg-luxury-emerald text-luxury-brass p-4 flex justify-between items-center border-b border-luxury-brass/20">
             <div className="flex items-center space-x-2">
