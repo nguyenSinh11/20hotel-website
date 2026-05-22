@@ -7,19 +7,12 @@ const PenthouseLayout = ({ property }) => {
   return (
     <div className="bg-gradient-to-b from-[#0f2a20] to-[#050505] text-white">
       {/* Full width immersive header */}
-      <div className="h-screen w-full relative">
-        {property.videoUrl ? (
-          <video 
-            src={property.videoUrl} 
-            autoPlay 
-            loop 
-            muted 
-            playsInline 
-            className="w-full h-full object-cover opacity-60 mix-blend-screen"
-          />
-        ) : (
-          <img src={property.images[0]} alt="Penthouse" className="w-full h-full object-cover opacity-60" />
-        )}
+      <div className="h-screen w-full relative overflow-hidden">
+        <img 
+          src={property.images[0]} 
+          alt="Penthouse" 
+          className="w-full h-full object-cover opacity-50 animate-slow-pan" 
+        />
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center p-4">
           <Crown className="w-16 h-16 text-luxury-brass mb-6 drop-shadow-xl" />
           <h1 className="text-5xl md:text-7xl font-bold font-serif mb-6 tracking-wide drop-shadow-2xl">{property.name}</h1>
