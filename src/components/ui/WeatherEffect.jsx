@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { CloudRain, CloudFog, Sun, CloudSun } from 'lucide-react';
 
 const WeatherEffect = () => {
   // 'none', 'rain', 'fog'
   const [weatherType, setWeatherType] = useState('none');
   const [isDemoMenuOpen, setIsDemoMenuOpen] = useState(false);
+  const timeoutRef = useRef(null);
 
   useEffect(() => {
     // Fetch real weather for Hanoi
@@ -72,12 +73,25 @@ const WeatherEffect = () => {
       {/* Demo Controller (Pop-up style, responsive) */}
       <div 
         className="fixed top-[100px] left-4 z-[100]"
-        onMouseEnter={() => setIsDemoMenuOpen(true)}
-        onMouseLeave={() => setIsDemoMenuOpen(false)}
+        onMouseEnter={() => {
+          if (timeoutRef.current) clearTimeout(timeoutRef.current);
+          setIsDemoMenuOpen(true);
+        }}
+        onMouseLeave={() => {
+          timeoutRef.current = setTimeout(() => {
+            setIsDemoMenuOpen(false);
+          }, 600); // Đợi 600ms mới đóng menu
+        }}
       >
+        {/* Vùng vô hình để cầu nối (bridge) giúp di chuột không bị ngắt quãng */}
+        <div className="absolute top-0 left-0 w-20 h-full bg-transparent z-0"></div>
+
         {/* Nút bấm / Biểu tượng khi thu gọn */}
         <button 
-          onClick={() => setIsDemoMenuOpen(!isDemoMenuOpen)}
+          onClick={() => {
+            if (timeoutRef.current) clearTimeout(timeoutRef.current);
+            setIsDemoMenuOpen(!isDemoMenuOpen);
+          }}
           className="p-3 bg-black/60 backdrop-blur-md rounded-full border border-luxury-brass/30 shadow-2xl text-luxury-brass hover:text-luxury-ivory hover:bg-black/80 transition-all z-10 relative"
           title="Test Thời Tiết"
         >
