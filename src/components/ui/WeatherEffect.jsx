@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { CloudRain, CloudFog, Sun } from 'lucide-react';
+import { CloudRain, CloudFog, Sun, CloudSun } from 'lucide-react';
 
 const WeatherEffect = () => {
   // 'none', 'rain', 'fog'
@@ -69,20 +69,35 @@ const WeatherEffect = () => {
         )}
       </div>
 
-      {/* Demo Controller (Fixed at top-left) */}
+      {/* Demo Controller (Pop-up style, responsive) */}
       <div 
-        className="fixed top-24 left-6 z-[100] flex flex-col bg-black/60 backdrop-blur-md p-3 rounded-xl border border-luxury-brass/30 shadow-2xl"
+        className="fixed top-[100px] left-4 z-[100]"
+        onMouseEnter={() => setIsDemoMenuOpen(true)}
+        onMouseLeave={() => setIsDemoMenuOpen(false)}
       >
-        <span className="text-xs text-luxury-brass font-bold mb-2 uppercase tracking-widest text-center">Test Thời Tiết</span>
-        <div className="flex space-x-2">
-          <button onClick={() => setWeatherType('none')} className={`p-2 rounded-full ${weatherType === 'none' ? 'bg-luxury-brass text-luxury-emerald' : 'text-luxury-ivory hover:bg-white/10'} transition-colors`} title="Trời nắng/Bình thường">
-            <Sun className="w-5 h-5" />
+        {/* Nút bấm / Biểu tượng khi thu gọn */}
+        <button 
+          onClick={() => setIsDemoMenuOpen(!isDemoMenuOpen)}
+          className="p-3 bg-black/60 backdrop-blur-md rounded-full border border-luxury-brass/30 shadow-2xl text-luxury-brass hover:text-luxury-ivory hover:bg-black/80 transition-all z-10 relative"
+          title="Test Thời Tiết"
+        >
+          <CloudSun className="w-5 h-5" />
+        </button>
+
+        {/* Menu xổ xuống */}
+        <div 
+          className={`absolute top-0 left-14 bg-black/80 backdrop-blur-md p-2 rounded-xl border border-luxury-brass/30 shadow-2xl flex items-center space-x-2 transition-all duration-300 origin-left ${
+            isDemoMenuOpen ? 'opacity-100 scale-100 translate-x-0' : 'opacity-0 scale-95 -translate-x-4 pointer-events-none'
+          }`}
+        >
+          <button onClick={() => setWeatherType('none')} className={`p-2 rounded-full whitespace-nowrap ${weatherType === 'none' ? 'bg-luxury-brass text-luxury-emerald' : 'text-luxury-ivory hover:bg-white/10'} transition-colors`} title="Trời nắng/Bình thường">
+            <Sun className="w-5 h-5 md:w-4 md:h-4" />
           </button>
-          <button onClick={() => setWeatherType('fog')} className={`p-2 rounded-full ${weatherType === 'fog' ? 'bg-luxury-brass text-luxury-emerald' : 'text-luxury-ivory hover:bg-white/10'} transition-colors`} title="Sương mù">
-            <CloudFog className="w-5 h-5" />
+          <button onClick={() => setWeatherType('fog')} className={`p-2 rounded-full whitespace-nowrap ${weatherType === 'fog' ? 'bg-luxury-brass text-luxury-emerald' : 'text-luxury-ivory hover:bg-white/10'} transition-colors`} title="Sương mù">
+            <CloudFog className="w-5 h-5 md:w-4 md:h-4" />
           </button>
-          <button onClick={() => setWeatherType('rain')} className={`p-2 rounded-full ${weatherType === 'rain' ? 'bg-luxury-brass text-luxury-emerald' : 'text-luxury-ivory hover:bg-white/10'} transition-colors`} title="Mưa rào">
-            <CloudRain className="w-5 h-5" />
+          <button onClick={() => setWeatherType('rain')} className={`p-2 rounded-full whitespace-nowrap ${weatherType === 'rain' ? 'bg-luxury-brass text-luxury-emerald' : 'text-luxury-ivory hover:bg-white/10'} transition-colors`} title="Mưa rào">
+            <CloudRain className="w-5 h-5 md:w-4 md:h-4" />
           </button>
         </div>
       </div>
