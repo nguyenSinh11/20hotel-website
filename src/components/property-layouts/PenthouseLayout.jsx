@@ -1,19 +1,33 @@
 import React from 'react';
 import { Crown } from 'lucide-react';
 import BookingCard from './BookingCard';
+import VipReviewsMarquee from '../ui/VipReviewsMarquee';
 
 const PenthouseLayout = ({ property }) => {
   return (
     <div className="bg-gradient-to-b from-[#0f2a20] to-[#050505] text-white">
       {/* Full width immersive header */}
       <div className="h-screen w-full relative">
-        <img src={property.images[0]} alt="Penthouse" className="w-full h-full object-cover opacity-60" />
+        {property.videoUrl ? (
+          <video 
+            src={property.videoUrl} 
+            autoPlay 
+            loop 
+            muted 
+            playsInline 
+            className="w-full h-full object-cover opacity-60 mix-blend-screen"
+          />
+        ) : (
+          <img src={property.images[0]} alt="Penthouse" className="w-full h-full object-cover opacity-60" />
+        )}
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center p-4">
-          <Crown className="w-16 h-16 text-luxury-brass mb-6" />
-          <h1 className="text-5xl md:text-7xl font-bold font-serif mb-6 tracking-wide">{property.name}</h1>
-          <p className="text-xl text-gray-300 uppercase tracking-[0.3em]">{property.hotel}</p>
+          <Crown className="w-16 h-16 text-luxury-brass mb-6 drop-shadow-xl" />
+          <h1 className="text-5xl md:text-7xl font-bold font-serif mb-6 tracking-wide drop-shadow-2xl">{property.name}</h1>
+          <p className="text-xl text-gray-300 uppercase tracking-[0.3em] font-semibold">{property.hotel}</p>
         </div>
       </div>
+
+      <VipReviewsMarquee reviews={property.vipReviews} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">

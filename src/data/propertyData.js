@@ -116,6 +116,13 @@ export const propertyData = [
     featured: true,
     description: "Tuyệt tác kiến trúc tại tầng cao nhất. Căn Penthouse mang đến không gian sống vô song với hồ bơi riêng mini, sân hiên rộng lớn và nội thất độc bản. Nơi khẳng định đẳng cấp đích thực của bạn.",
     amenities: ["Hồ bơi mini", "Sân hiên BBQ", "Phòng xông hơi", "Quản gia riêng", "Quầy bar riêng"],
-    specialFeature: "Có thang máy riêng lên tận phòng."
+    specialFeature: "Có thang máy riêng lên tận phòng.",
+    videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-luxury-hotel-room-1579-large.mp4",
+    vipReviews: [
+      { name: "John D.", role: "Tỉ phú", content: "Trải nghiệm hoàn hảo, mọi chi tiết đều toát lên sự đẳng cấp." },
+      { name: "Lê N.", role: "Ca sĩ Hạng A", content: "Tôi cực kỳ ấn tượng với đặc quyền thang máy riêng và hồ bơi vô cực." },
+      { name: "Mr. Smith", role: "CEO", content: "Nội thất độc bản tạo nên một không gian sống không thể tìm thấy ở đâu khác." },
+      { name: "H. Trần", role: "Nhà thiết kế", content: "Sự xa hoa giao hòa cùng nghệ thuật. Tuyệt tác thực sự!" }
+    ]
   }
 ];
