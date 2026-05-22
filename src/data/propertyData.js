@@ -101,6 +101,7 @@ export const propertyData = [
     id: 6,
     hotel: "KHÁCH SẠN 20",
     name: "Căn hộ áp mái (Penthouse)",
+    name_en: "Penthouse Suite",
     price: "2.450.000",
     layoutType: "penthouse",
     images: [
@@ -115,6 +116,7 @@ export const propertyData = [
     area: "88",
     featured: true,
     description: "Tuyệt tác kiến trúc tại tầng cao nhất. Căn Penthouse mang đến không gian sống vô song với hồ bơi riêng mini, sân hiên rộng lớn và nội thất độc bản. Nơi khẳng định đẳng cấp đích thực của bạn.",
+    description_en: "An architectural masterpiece on the top floor. The Penthouse offers an unparalleled living space with a private mini pool, a large terrace, and bespoke furnishings. A place that affirms your true prestige.",
     amenities: ["Hồ bơi mini", "Sân hiên BBQ", "Phòng xông hơi", "Quản gia riêng", "Quầy bar riêng"],
     specialFeature: "Có thang máy riêng lên tận phòng.",
     videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-luxury-hotel-room-1579-large.mp4",

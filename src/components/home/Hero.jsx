@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import SearchBar from './SearchBar';
 
 const SLIDES = [
@@ -8,6 +9,7 @@ const SLIDES = [
 ];
 
 const Hero = () => {
+  const { t } = useTranslation();
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
@@ -37,8 +39,11 @@ const Hero = () => {
         
         {/* Main Heading */}
         <div className="mt-16 mb-12" data-aos="fade-up" data-aos-delay="2500">
-          <h1 className="text-5xl md:text-7xl font-bold text-luxury-ivory max-w-4xl leading-tight tracking-tight font-serif">
-            Hành Trình Khám Phá <br /> Di Sản Bất Tận
+          <h1 className="text-5xl md:text-7xl font-bold font-serif mb-6 leading-[1.1] tracking-wide text-white drop-shadow-xl" data-aos="fade-up" data-aos-delay="200">
+            {t('hero.title1')} <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-luxury-brass via-yellow-200 to-luxury-brass filter drop-shadow-md">
+              {t('hero.title2')}
+            </span>
           </h1>
         </div>
 

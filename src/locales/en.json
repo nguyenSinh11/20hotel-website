@@ -1,0 +1,34 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "rooms": "Rooms & Suites",
+    "news": "News",
+    "careers": "Careers",
+    "support": "Support",
+    "login": "Login",
+    "login_register": "Login / Register"
+  },
+  "hero": {
+    "title1": "A Journey of",
+    "title2": "Endless Heritage Discovery"
+  },
+  "concierge": {
+    "title": "VIP Concierge",
+    "subtitle": "Always at your service",
+    "placeholder": "How can I help you today?",
+    "welcome": "Welcome. May I assist you in finding the perfect room for your upcoming stay?",
+    "not_understood": "I'm sorry, I didn't quite catch that. Could you clarify your preferences? (e.g., family trip, city view, or the finest suite)",
+    "recommendation": "Based on your preferences, I proudly recommend the {{roomName}}. It offers an exceptional experience for {{price}} VND/night.",
+    "view_room": "View room details →"
+  },
+  "penthouse": {
+    "back": "Back to rooms",
+    "features": "Summit Privileges",
+    "bath": "Bath",
+    "service": "Service",
+    "price": "Price",
+    "night": "night",
+    "book_now": "Book Now"
+  }
+}

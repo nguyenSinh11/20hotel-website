@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageSquare, X, Send, Bot, User, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { propertyData } from '../../data/propertyData';
 
 const KEYWORD_MAP = {
@@ -21,12 +22,18 @@ const KEYWORD_MAP = {
 };
 
 const VIPConcierge = () => {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState([
-    { sender: 'bot', text: 'Kính chào quý khách. Tôi có thể giúp ngài tìm căn phòng hoàn hảo cho kỳ nghỉ sắp tới không?' }
-  ]);
+  const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const messagesEndRef = useRef(null);
+
+  // Initialize welcome message with translation
+  useEffect(() => {
+    if (messages.length === 0) {
+      setMessages([{ sender: 'bot', text: t('concierge.welcome') }]);
+    }
+  }, [t, messages.length]);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -60,13 +67,13 @@ const VIPConcierge = () => {
         const room = propertyData.find(p => p.id === matchedId);
         setMessages(prev => [...prev, {
           sender: 'bot',
-          text: `Dựa trên yêu cầu của ngài, tôi xin trân trọng đề xuất căn ${room.name}. Căn phòng này mang đến trải nghiệm tuyệt vời với mức giá ${room.price}đ/đêm.`,
+          text: t('concierge.recommendation').replace('{{roomName}}', room.name).replace('{{price}}', room.price),
           link: `/property/${room.id}`
         }]);
       } else {
         setMessages(prev => [...prev, {
           sender: 'bot',
-          text: 'Rất tiếc tôi chưa nắm rõ ý của ngài. Ngài có thể nói rõ hơn về sở thích như: đi cùng gia đình, cần ban công, hay muốn phòng cao cấp nhất không ạ?'
+          text: t('concierge.not_understood')
         }]);
       }
     }, 1000);
@@ -80,7 +87,7 @@ const VIPConcierge = () => {
         className={`fixed bottom-6 right-6 p-4 bg-luxury-emerald text-luxury-brass rounded-full shadow-2xl hover:scale-105 transition-transform border border-luxury-brass/30 z-50 ${isOpen ? 'hidden' : 'flex'} items-center space-x-2`}
       >
         <Sparkles className="w-5 h-5 animate-pulse" />
-        <span className="font-serif font-bold tracking-wider">Quản Gia</span>
+        <span className="font-serif font-bold tracking-wider">{t('concierge.title')}</span>
       </button>
 
       {/* Chat Window */}
@@ -91,8 +98,8 @@ const VIPConcierge = () => {
             <div className="flex items-center space-x-2">
               <Bot className="w-6 h-6" />
               <div>
-                <h3 className="font-serif font-bold text-lg leading-tight">Quản Gia</h3>
-                <p className="text-xs text-luxury-ivory/70">Luôn sẵn sàng phục vụ</p>
+                <h3 className="font-serif font-bold text-lg leading-tight">{t('concierge.title')}</h3>
+                <p className="text-xs text-luxury-ivory/70">{t('concierge.subtitle')}</p>
               </div>
             </div>
             <button onClick={() => setIsOpen(false)} className="text-luxury-ivory hover:text-white transition">
@@ -108,7 +115,7 @@ const VIPConcierge = () => {
                   {msg.text}
                   {msg.link && (
                     <Link to={msg.link} onClick={() => setIsOpen(false)} className="block mt-2 text-luxury-brass font-bold hover:underline">
-                      Xem phòng ngay →
+                      {t('concierge.view_room')}
                     </Link>
                   )}
                 </div>
@@ -124,7 +131,7 @@ const VIPConcierge = () => {
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Ngài cần tìm phòng như thế nào?"
+                placeholder={t('concierge.placeholder')}
                 className="w-full bg-luxury-ivory border border-luxury-emerald/20 rounded-full py-2 pl-4 pr-12 text-sm focus:outline-none focus:border-luxury-brass text-luxury-emerald"
               />
               <button type="submit" className="absolute right-1 top-1 bottom-1 w-8 h-8 flex items-center justify-center bg-luxury-emerald text-luxury-brass rounded-full hover:bg-luxury-emerald/90 transition">
