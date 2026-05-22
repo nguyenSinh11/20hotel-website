@@ -47,18 +47,7 @@ const Hero = () => {
           <SearchBar />
         </div>
 
-        {/* Bottom Text Area */}
-        <div className="flex justify-end mt-16 pb-8" data-aos="fade-left" data-aos-delay="2900">
-          <div className="max-w-md text-right border-r-2 border-luxury-brass pr-6">
-            <p className="text-luxury-ivory font-medium text-lg leading-relaxed font-serif">
-              Khám phá không gian nghỉ dưỡng thượng lưu, nơi sự xa hoa giao hòa cùng bản sắc văn hóa di sản.
-            </p>
-            <p className="text-luxury-ivory/70 text-sm mt-3 uppercase tracking-widest font-semibold">
-              Dịch vụ đẳng cấp quốc tế 5 sao
-            </p>
-          </div>
-        </div>
-        
+
         {/* Pagination Dots */}
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-2 bg-white/20 px-4 py-2 rounded-full backdrop-blur-sm">
           {SLIDES.map((_, index) => (
