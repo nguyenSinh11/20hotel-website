@@ -5,7 +5,7 @@ const SEO = ({ title, description, type = 'website', image, url }) => {
   const siteName = '20 Hotel & Apartment';
   const defaultTitle = '20 Hotel & Apartment - Trải nghiệm nghỉ dưỡng đẳng cấp';
   const defaultDescription = 'Khu nghỉ dưỡng và căn hộ cao cấp mang lại trải nghiệm thư giãn tuyệt vời, không gian tinh tế và đẳng cấp quốc tế.';
-  const defaultImage = 'https://images.unsplash.com/photo-1542314831-c6a4d14b83cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80';
+  const defaultImage = 'https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80';
 
   const finalTitle = title ? `${title} | ${siteName}` : defaultTitle;
   const finalDescription = description || defaultDescription;
