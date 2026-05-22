@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Disc3, Music, VolumeX, Volume2 } from 'lucide-react';
 
-// Dùng nhạc nền rừng cây chim hót (mp3 để tương thích 100% mọi trình duyệt)
-const AUDIO_URL = "https://cdn.freesound.org/previews/515/515822_6081498-lq.mp3";
+// Cho phép load từ file local trước, nếu không có sẽ fallback về nhạc mặc định
+const LOCAL_AUDIO = "/nature.mp3";
+const FALLBACK_AUDIO = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
 
 const AmbientAudio = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -47,7 +48,10 @@ const AmbientAudio = () => {
 
   return (
     <>
-      <audio ref={audioRef} src={AUDIO_URL} loop preload="auto" />
+      <audio ref={audioRef} loop preload="auto">
+        <source src={LOCAL_AUDIO} type="audio/mpeg" />
+        <source src={FALLBACK_AUDIO} type="audio/mpeg" />
+      </audio>
       
       <button
         onClick={toggleAudio}
