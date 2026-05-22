@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Disc3, Music, VolumeX, Volume2 } from 'lucide-react';
 
-// Using a reliable royalty-free ambient lounge jazz track
-const AUDIO_URL = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
+// Using a reliable royalty-free nature track (birds and stream)
+const AUDIO_URL = "https://actions.google.com/sounds/v1/water/small_stream_with_birds.ogg";
 
 const AmbientAudio = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -75,7 +75,7 @@ const AmbientAudio = () => {
         {/* Helper tooltip on first load */}
         {!hasInteracted && !isPlaying && (
           <div className="absolute left-16 bg-black/80 text-luxury-ivory text-xs px-3 py-1.5 rounded-sm whitespace-nowrap border border-luxury-brass/30 animate-pulse hidden md:block">
-            Bật nhạc nền thư giãn
+            Bật âm thanh thiên nhiên
           </div>
         )}
       </button>
