@@ -9,7 +9,7 @@ const Navbar = () => {
     <nav className="absolute top-0 left-0 right-0 z-50 flex flex-col md:flex-row items-start md:items-center justify-between px-6 md:px-8 text-white pt-6">
       
       {/* Top Bar for Mobile & Logo */}
-      <div className="flex w-full md:w-auto items-center justify-between">
+      <div className="flex w-full md:w-auto md:flex-1 items-center justify-between">
         {/* Logo */}
         <Link to="/" className="text-2xl font-bold tracking-tight text-luxury-ivory flex items-center font-serif">
           <span className="text-luxury-brass text-3xl mr-1">20</span>Hotel

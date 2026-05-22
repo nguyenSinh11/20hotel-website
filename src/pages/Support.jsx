@@ -48,7 +48,7 @@ const Support = () => {
       <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center mb-16">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1551882547-ff40c0d12036?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
+            src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
             alt="Customer Support" 
             className="w-full h-full object-cover"
           />
