@@ -4,7 +4,7 @@ import BookingCard from './BookingCard';
 
 const PenthouseLayout = ({ property }) => {
   return (
-    <div className="bg-black text-white">
+    <div className="bg-gradient-to-b from-[#0f2a20] to-[#050505] text-white">
       {/* Full width immersive header */}
       <div className="h-screen w-full relative">
         <img src={property.images[0]} alt="Penthouse" className="w-full h-full object-cover opacity-60" />
@@ -18,7 +18,7 @@ const PenthouseLayout = ({ property }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
           <div>
-            <h2 className="text-4xl font-serif font-bold text-luxury-brass mb-8">Trải nghiệm<br />Độc bản</h2>
+            <h2 className="text-4xl font-serif font-bold text-luxury-brass mb-8 drop-shadow-md">Trải nghiệm<br />Độc bản</h2>
             <p className="text-xl text-gray-300 leading-relaxed font-light">
               {property.description}
             </p>
@@ -39,7 +39,7 @@ const PenthouseLayout = ({ property }) => {
             <h3 className="text-2xl font-bold font-serif mb-8 text-luxury-brass">Đặc quyền thượng đỉnh</h3>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
               {property.amenities.map((item, idx) => (
-                <div key={idx} className="text-center p-6 bg-white/5 rounded-sm hover:bg-white/10 transition">
+                <div key={idx} className="text-center p-6 bg-white/5 rounded-sm hover:bg-white/10 transition border border-white/5 hover:border-luxury-brass/40 shadow-lg hover:shadow-luxury-brass/20">
                   <p className="text-sm font-medium tracking-wider">{item}</p>
                 </div>
               ))}
@@ -47,7 +47,7 @@ const PenthouseLayout = ({ property }) => {
           </div>
           <div className="lg:col-span-1">
             <div className="sticky top-32">
-              <BookingCard price={`${property.price} đ`} className="!bg-neutral-900 !text-white !border-neutral-800" />
+              <BookingCard price={`${property.price} đ`} className="!bg-[#151515]/80 !backdrop-blur-md !text-white !border-luxury-brass/30 !shadow-2xl !shadow-luxury-brass/10" />
             </div>
           </div>
         </div>
