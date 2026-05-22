@@ -1,9 +1,23 @@
 import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Moon, Sun } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(() => document.documentElement.classList.contains('dark'));
+
+  const toggleTheme = () => {
+    const html = document.documentElement;
+    if (html.classList.contains('dark')) {
+      html.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+      setIsDarkMode(false);
+    } else {
+      html.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+      setIsDarkMode(true);
+    }
+  };
 
   return (
     <nav className="absolute top-0 left-0 right-0 z-50 flex flex-col md:flex-row items-start md:items-center justify-between px-6 md:px-8 text-white pt-6">
@@ -48,8 +62,15 @@ const Navbar = () => {
         </div>
       )}
 
-      {/* Right Actions */}
-      <div className="hidden md:flex flex-1 justify-end">
+      {/* Right Actions & Theme Toggle */}
+      <div className="hidden md:flex flex-1 justify-end items-center space-x-4">
+        <button 
+          onClick={toggleTheme}
+          className="p-2 rounded-full bg-black/20 backdrop-blur-md text-luxury-ivory hover:text-luxury-brass border border-luxury-ivory/10 transition-colors shadow-lg"
+          title="Toggle VIP Mode"
+        >
+          {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+        </button>
       </div>
     </nav>
   );

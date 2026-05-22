@@ -6,6 +6,7 @@ import FeaturesBanner from './components/home/FeaturesBanner';
 import PropertyTypes from './components/home/PropertyTypes';
 import Trending from './components/home/Trending';
 import Footer from './components/layout/Footer';
+import VIPConcierge from './components/ui/VIPConcierge';
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -36,10 +37,11 @@ const LayoutWrapper = ({ children }) => {
   const isAuthPage = ['/login', '/register', '/forgot-password'].includes(location.pathname);
 
   return (
-    <div className="min-h-screen bg-luxury-ivory font-sans text-luxury-emerald">
+    <div className="min-h-screen bg-luxury-ivory font-sans text-luxury-emerald transition-colors duration-500 relative">
       {!isAuthPage && <Navbar />}
       {children}
       {!isAuthPage && <Footer />}
+      <VIPConcierge />
     </div>
   );
 };
@@ -48,6 +50,13 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    // Check initial theme from localStorage
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
     AOS.init({
       once: true,
       offset: 50,
