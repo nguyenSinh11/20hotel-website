@@ -80,7 +80,7 @@ const VIPConcierge = () => {
         className={`fixed bottom-6 right-6 p-4 bg-luxury-emerald text-luxury-brass rounded-full shadow-2xl hover:scale-105 transition-transform border border-luxury-brass/30 z-50 ${isOpen ? 'hidden' : 'flex'} items-center space-x-2`}
       >
         <Sparkles className="w-5 h-5 animate-pulse" />
-        <span className="font-serif font-bold tracking-wider hidden md:block">Quản gia VIP</span>
+        <span className="font-serif font-bold tracking-wider hidden md:block">Quản Gia</span>
       </button>
 
       {/* Chat Window */}
@@ -91,7 +91,7 @@ const VIPConcierge = () => {
             <div className="flex items-center space-x-2">
               <Bot className="w-6 h-6" />
               <div>
-                <h3 className="font-serif font-bold text-lg leading-tight">Quản gia VIP</h3>
+                <h3 className="font-serif font-bold text-lg leading-tight">Quản Gia</h3>
                 <p className="text-xs text-luxury-ivory/70">Luôn sẵn sàng phục vụ</p>
               </div>
             </div>
