@@ -72,7 +72,7 @@ const WeatherEffect = () => {
 
       {/* Demo Controller (Pop-up style, responsive) */}
       <div 
-        className="fixed top-[100px] left-4 z-[100]"
+        className="hidden fixed top-[100px] left-4 z-[100]"
         onMouseEnter={() => {
           if (timeoutRef.current) clearTimeout(timeoutRef.current);
           setIsDemoMenuOpen(true);

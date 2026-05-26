@@ -81,14 +81,36 @@ const VIPConcierge = () => {
 
   return (
     <>
-      {/* Floating Button */}
-      <button
-        onClick={() => setIsOpen(true)}
-        className={`fixed bottom-6 right-6 p-4 bg-luxury-emerald text-luxury-brass rounded-full shadow-2xl hover:scale-105 transition-transform border border-luxury-brass/30 z-50 ${isOpen ? 'hidden' : 'flex'} items-center space-x-2`}
-      >
-        <Sparkles className="w-5 h-5 animate-pulse" />
-        <span className="font-serif font-bold tracking-wider">{t('concierge.title')}</span>
-      </button>
+      {/* Floating Action Buttons */}
+      <div className={`fixed bottom-4 right-4 md:bottom-6 md:right-6 flex-col items-end space-y-2 md:space-y-3 z-50 ${isOpen ? 'hidden' : 'flex'}`}>
+        <a
+          href="https://zalo.me/"
+          target="_blank"
+          rel="noreferrer"
+          className="w-10 h-10 md:w-12 md:h-12 bg-luxury-emerald text-luxury-brass rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform border border-luxury-brass/30"
+          title="Zalo"
+        >
+          <span className="font-bold text-[10px] md:text-sm">Zalo</span>
+        </a>
+        <a
+          href="https://m.me/"
+          target="_blank"
+          rel="noreferrer"
+          className="w-10 h-10 md:w-12 md:h-12 bg-luxury-emerald text-luxury-brass rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform border border-luxury-brass/30"
+          title="Facebook"
+        >
+          <svg className="w-5 h-5 md:w-6 md:h-6 fill-current" viewBox="0 0 24 24">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+        </a>
+        <button
+          onClick={() => setIsOpen(true)}
+          className="p-3 md:p-4 bg-luxury-emerald text-luxury-brass rounded-full shadow-2xl hover:scale-105 transition-transform border border-luxury-brass/30 flex items-center md:space-x-2"
+        >
+          <Sparkles className="w-5 h-5 md:w-6 md:h-6 animate-pulse" />
+          <span className="hidden md:block font-serif font-bold tracking-wider">{t('concierge.title')}</span>
+        </button>
+      </div>
 
       {/* Chat Window */}
       {isOpen && (
